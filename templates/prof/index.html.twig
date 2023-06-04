@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prof index
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+		<div class="col-3">
+			<h1>Liste des Profs</h1>
+		</div>
+		<div class="col">
+			<a href="{{ path('app_prof_new') }}" class="btn btn-outline-primary" style="margin-top:7px">Ajouter un profs</a>
+		</div>
+	</div>
+
+    <table class="table"  style="display:none">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for prof in profs %}
+            <tr>
+                <td>{{ prof.id }}</td>
+                <td>{{ prof.nom }}</td>
+                <td>{{ prof.prenom }}</td>
+                <td>{{ prof.email }}</td>
+                <td>{{ prof.photo }}</td>
+                <td>
+                    <a href="{{ path('app_prof_show', {'id': prof.id}) }}">show</a>
+                    <a href="{{ path('app_prof_edit', {'id': prof.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="row">
+
+		{% for prof in profs %}
+			<div class="col-4">
+				<div class="card mb-2">
+					<div class="card-body">
+						<div class="row">
+							<div class="col"><img height="80" width="80" src="{{prof.photo}}" alt="photo">
+							</div>
+							<div class="col">{{prof.prenom}}
+								{{prof.nom}}</div>
+						</div>
+                        <a href="{{ path('app_prof_edit', {'id': prof.id}) }}">edit</a>
+						<div class="row alert alert-primary mt-2">
+							Contact
+							<br>
+							Mail :
+							{{prof.email}}
+							<br>
+							Nom :
+							{{prof.nom}}
+                            <br>
+							Prenom :
+							{{prof.prenom}}
+                            <br>
+                            Prof de :
+							{{prof.instrument}}
+
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+    
+{% endblock %}

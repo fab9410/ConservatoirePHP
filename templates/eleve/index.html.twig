@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleve index
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-3">
+			<h1>Liste des élèves</h1>
+		</div>
+		<div class="col">
+			<a href="{{ path('app_eleve_new') }}" class="btn btn-outline-primary" style="margin-top:7px">Ajouter un élève</a>
+		</div>
+	</div>
+
+	<table class="table" style="display:none">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Mail</th>
+				<th>Telephone</th>
+				<th>Photo</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for eleve in eleves %}
+				<tr>
+					<td>{{ eleve.id }}</td>
+					<td>{{ eleve.nom }}</td>
+					<td>{{ eleve.prenom }}</td>
+					<td>{{ eleve.mail }}</td>
+					<td>{{ eleve.telephone }}</td>
+					<td>{{ eleve.photo }}</td>
+					<td>
+						<a href="{{ path('app_eleve_show', {'id': eleve.id}) }}">show</a>
+						<a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="7">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+	<div class="row">
+
+		{% for eleve in eleves %}
+			<div class="col-4">
+				<div class="card mb-2">
+					<div class="card-body">
+						<div class="row">
+							<div class="col"><img height="80" width="80" src="{{eleve.photo}}" alt="photo">
+							</div>
+							<div class="col">{{eleve.prenom}}
+								{{eleve.nom}}</div>
+
+								<a href="{{ path('app_eleve_edit', {'id': eleve.id}) }}">edit</a>
+						</div>
+						<div class="row alert alert-primary mt-2">
+							Contact
+							<br>
+							Mail :
+							{{eleve.mail}}
+							<br>
+							Tel :
+							{{eleve.telephone}}
+
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

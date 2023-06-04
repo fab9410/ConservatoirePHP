@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Conservatoire{% endblock %}</title>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+	{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+	{% block stylesheets %}
+		{{ encore_entry_link_tags('app') }}
+	{% endblock %}
+
+	{% block javascripts %}
+		{{ encore_entry_script_tags('app') }}
+	{% endblock %}
+</head>
+<header>
+	<!-- Fixed navbar -->
+	<nav class="Menu navbar navbar-expand-lg navbar-light bg-purple">
+		<div class="ElementMenuLogo">
+			<img class="logoMenu" src="{{ asset('images/sol.png') }}">			
+		</div>
+		<h4 class="titre">Conservatoire</h4>
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="ElementMenu collapse navbar-collapse" id="navbarCollapse">
+			{% if app.user %}
+			
+				<ul class="navbar-nav me-auto mb-2 mb-md-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path('app_search') }}">Calendrier</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path('app_cour_index') }}">Cours</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path('app_prof_index') }}">Profs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path('app_eleve_index') }}">Elèves</a>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav me-auto ml-auto">
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" id="accountDropdownLink" data-bs-toggle="dropdown">
+							{{ app.user.prenom }}
+						</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdownLink">
+							<a href="{{ path('app_logout') }}" class="dropdown-item">Déconnexion</a>
+						</div>
+					</li>
+				</ul>
+			{% endif %}
+		</div>
+	</nav>
+</header>
+
+<body>
+	<div class="container" style="margin-top: 70px">
+		{% block body %}{% endblock %}
+	</div>
+</body>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+</html>

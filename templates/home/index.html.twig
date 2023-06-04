@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Accueil
+{% endblock %}
+
+{% block body %}
+	<div class="bienvenu">
+	<div class="divDroiteBienvenu">
+		<h3 class="textBienvenu">Bienvenue !</h3>
+		<p class="sousTextBienvenu"> {{ app.user.prenom }}, nous sommes le {{ "now"|date("l j F Y")|replace({
+												'Monday': 'Lundi',
+												'Tuesday': 'Mardi',
+												'Wednesday': 'Mercredi',
+												'Thursday': 'Jeudi',
+												'Friday': 'Vendredi',
+												'Saturday': 'Samedi',
+												'Sunday': 'Dimanche',
+												'January': 'janvier',
+												'February': 'février',
+												'March': 'mars',
+												'April': 'avril',
+												'May': 'mai',
+												'June': 'juin',
+												'July': 'juillet',
+												'August': 'août',
+												'September': 'septembre',
+												'October': 'octobre',
+												'November': 'novembre',
+												'December': 'décembre'})
+												}}
+		</p>
+		</div>
+		<div class="divGaucheBienvenu">
+			<img class="image1accueil" src="{{ asset('images/Fichier1.png') }}">
+		</div>
+	</div>
+	
+	
+	<div class="statAndAcces">
+
+		<div class="col">
+			<div class="divDroiteStat">
+				<h3 class="titreStat">Statistiques</h3>
+				<div class="statistiqueContainer">
+					<a href="{{ path('app_eleve_index') }}" class="statistiqueCards">
+						<h4 class="valeurStat">{{ nbEleve }} eleves</h4>
+						<p class="typeStat">inscrits</p>
+					</a>
+					<a href="{{ path('app_prof_index') }}" class="statistiqueCards">
+						<h4 class="valeurStat">Profs</h4>
+						<p class="typeStat">inscrits</p>
+					</a>
+					<a href="{{ path('app_cour_index') }}" class="statistiqueCards">
+					<h4 class="valeurStat">Cours</h4>
+						<p class="typeStat">cette semaine</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col">
+			<div class="divGaucheAcces">
+				<h3 class="titreStat">Cours</h3>
+				<div class="statistiqueContainer">
+					<a href="#" class="statistiqueCards">
+						<h4 class="valeurStat">Fiches des seances</h4>
+					</a>
+					<a href="#" class="statistiqueCards">
+						<h4 class="valeurStat">Calendrier des seances</h4>
+					</a>
+				</div>
+			</div>
+		</div>
+
+	
+	</div>
+{% endblock %}

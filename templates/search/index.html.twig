@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+
+    <form action="/search" method="post">date: <input type="date" name="dateD" id="dateD"/> <button type="submit" class="btn btn-primary btn-sm">Rechercher</button> </form>
+
+    <hr>
+
+    liste des Cours :
+    {{ message }}
+    {% for cour in cours %}
+
+    {{ cour.name}}
+
+    {% endfor %}
+
+{% endblock %}

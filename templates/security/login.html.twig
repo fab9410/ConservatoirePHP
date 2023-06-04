@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+
+		{% if error %}
+			<div class="alertErreur">{{ error.messageKey|trans(error.messageData, 'security') }} Mot de passe ou Email incorrecte</div>
+		{% endif %}
+
+		{% if app.user %}
+			<div class="alert alert-warning mb-3" role="alert">
+				You are logged in as
+				{{ app.user.userIdentifier }},
+				<a class="alert-link" href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
+
+	<form class="containterConnexion" method="post">
+
+		<h1 class="textConnexion">Connexion</h1>
+		<div class="groupID">
+			<label class="titreConnect" for="inputEmail">Email</label>
+			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+		</div>
+		<div class="groupMDP">
+			<label class="titreConnect" for="inputPassword">Mot de passe</label>
+			<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+		
+
+		<input
+		type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+</div>
+		
+		<button class="boutonConnexion mt-4" type="submit">
+			Connexion
+		</button>
+		
+	</form>
+	
+{% endblock %}
