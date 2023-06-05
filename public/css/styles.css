@@ -224,6 +224,8 @@
   color: rgb(255, 255, 255);
   font-size: 35px;
   font-family: Sora_semibold;
+  width: auto;
+  height: auto;
 }
 
 .titre {
@@ -240,9 +242,7 @@
 }
 
 .statistiqueCards {
-  flex: 1 0 120px;
-  width: 25%;
-  height: 135px;
+  flex: 1 1 auto;
   margin-top: 50px;
   background-color: #600d8a;
   text-align: center;

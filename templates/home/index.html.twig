@@ -44,7 +44,7 @@
 				<h3 class="titreStat">Statistiques</h3>
 				<div class="statistiqueContainer">
 					<a href="{{ path('app_eleve_index') }}" class="statistiqueCards">
-						<h4 class="valeurStat">{{ nbEleve }} eleves</h4>
+						<h4 class="valeurStat">{{ nbEleve }} Elèves</h4>
 						<p class="typeStat">inscrits</p>
 					</a>
 					<a href="{{ path('app_prof_index') }}" class="statistiqueCards">
@@ -64,10 +64,10 @@
 			<div class="divGaucheAcces">
 				<h3 class="titreStat">Cours</h3>
 				<div class="statistiqueContainer">
-					<a href="#" class="statistiqueCards">
-						<h4 class="valeurStat">Fiches des seances</h4>
+					<a href="{{ path('app_cour_index') }}" class="statistiqueCards">
+						<h4 class="valeurStat">Fiches des séances</h4>
 					</a>
-					<a href="#" class="statistiqueCards">
+					<a href="{{ path('app_search') }}" class="statistiqueCards">
 						<h4 class="valeurStat">Calendrier des seances</h4>
 					</a>
 				</div>
