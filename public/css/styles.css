@@ -123,6 +123,11 @@
     color: #e87f3e;
 }
 
+.navbar-nav .nav-link{
+  color:#FFFFFF
+}
+
+
 .dropdown-menu {
     background-color: #f30404;
 }
@@ -138,10 +143,6 @@
 .navbar-nav .nav-item:not(:last-child) {
   margin-right: 20px; /* Ajustez la valeur selon vos besoins */
 }
-
-
-
-
 
 .bienvenu {
   height: 200px;
@@ -265,4 +266,30 @@ a {
   flex: 1 0 130px;
   border-radius: 20px;
   background-color: #f5f5f5;
+}
+
+.AjoutProf:hover {
+  color: #ffffff;
+  transition: all 0.3s ease-out;
+  background-color: #e87f3e;
+}
+
+.AjoutProf {
+  width: 220px;
+  height: 40px;
+  position: absolute;
+  margin-top: 0px;
+  border-radius: 20px;
+  border: solid 2px #600d8a;
+  color: #600d8a;
+  background-color: #FFFFFF;
+  transition: all 0.3s ease-out;
+  font-family: Sora_regular;
+}
+
+.titreEleve {
+  font-size: 30px;
+  margin-left: 40px;
+  margin-top: 50px;
+  font-family: Sora_semibold;
 }
