@@ -20,6 +20,7 @@ class PdfGeneratorController extends AbstractController
             'name'         => 'Rayan',
             'address'      => 'Vitry sur Seine',
             'mobileNumber' => '064545295',
+            'Instrument' => 'Piano',
             'email'        => 'rayan.romanet@email.fr'
         ];
         $html =  $this->renderView('pdf_generator/index.html.twig', $data);
